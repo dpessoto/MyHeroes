@@ -2,7 +2,7 @@
 <resources>
 
     <!-- nome do app -->
-    <string name="app_name">evino</string>
+    <string name="app_name">Meus heróis</string>
 
     <!-- intro_1 -->
     <string name="my_name">Daniel Pessoto</string>
