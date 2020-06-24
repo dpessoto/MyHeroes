@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- nome do app -->
+    <string name="app_name">evino</string>
+
+    <!-- intro_1 -->
+    <string name="my_name">Daniel Pessoto</string>
+
+    <!-- intro_2 -->
+    <string name="about_me">Sobre mim</string>
+    <string name="my_description">Desenvolvedor com experiência em desenvolvimento android, com conhecimento em banco de dados, versionamento e que valoriza boas práticas de programação.</string>
+    <string name="acquirements">Conhecimentos</string>
+    <string name="acquirements_of_languages">HTML5 \nCSS3 \nBootstrap \nJavascript \nC \nC# \n.NET \nAsp.NET \nJava \nAndroid (Java e Kotlin) \nGIT \nBanco de dados (SQL Server)</string>
+    <string name="personal_skills">Habilidades pessoais</string>
+    <string name="personal_skills_description">Criativo \nConfiável e profissional \nOrganizado \nFlexível \nMotivado \nAprendizagem rápida</string>
+
+    <!-- intro_3 -->
+    <string name="create_your_free_account">Crie a sua conta grátis</string>
+    <string name="join_the_evini">Junte-se ao mundo evino \ne tenha os melhores vinhos</string>
+    <string name="login_register">Login / cadastro</string>
+
+    <!-- activity_login / activity_cadastro -->
+    <string name="name">Nome</string>
+    <string name="password">Senha</string>
+    <string name="login">login</string>
+    <string name="email">E-mail</string>
+    <string name="register">Cadastre-se</string>
+
+    <!-- acitivity_main -->
+    <string name="exit">Sair</string>
+
+    <!-- LoginActivity.class / CadastroActivity.class-->
+    <string name="fill_in_the_password">Preencha a senha!</string>
+    <string name="fill_in_the_email">Preencha o e-mail!</string>
+    <string name="fill_in_the_name">Preencha o nome!</string>
+    <string name="error_singning_in">Erro ao fazer login</string>
+    <string name="verification">Verificação</string>
+    <string name="verification_age">Você possui 18 anos ou mais?</string>
+    <string name="yes">Sim</string>
+    <string name="no">Não</string>
+    <string name="come_back">Volte daqui alguns anos / meses / dias</string>
+    <string name="no_internet">Sem conexão com a internet</string>
+    <string name="we_need_an_intenert">Precisamos de conexão com a internet. Por favor, ative e tente novamente</string>
+    <string name="try_again">TENTAR NOVAMENTE</string>
+    <string name="close">FECHAR</string>
+    <string name="try_later">Tente mais tarde</string>
+    <string name="registered_successfully">Cadastrado com sucesso</string>
+    <string name="enter_a_stronger_password">Digite uma senha mais forte!</string>
+    <string name="type_a_valid_email">Por favor, digite um email válido!</string>
+    <string name="account_has_been_registered">Esta conta já foi cadastrada!</string>
+    <string name="when_registering_user">ao cadastrar usuário: </string>
+    <string name="error">erro: </string>
+
+    <!-- MainActivity.class -->
+    <string name="click_on_some_wine">clique em algum vinho, para ver a descrição</string>
+
+    <!-- DetalhesActivity -->
+    <string name="descricao_1">Produzido por Domaine du Père Guillot de origem europeia, com tipo de fechamento rolha, volume de 750ml, feito com várias uvas e teor alcoólico de 12%.</string>
+    <string name="descricao_2">Produzido por Bodega López e Morena de origem espanhola com tipo de fechamento rolha, volume de 750ml, feito uvas Pinot Noir e teor alcoólico de 12%.</string>
+    <string name="descricao_3">Produzido por Aura Wines de origem chilena com tipo de fechamento rolha de cortiça, volume de 750ml, feito uvas Pinot Noir e teor alcoólico de 13%.</string>
+    <string name="descricao_4">Produzido por Viniverde - Adega Ponte da Barca de origem portuguesa com tipo de fechamento rolha, volume de 750ml, feito com várias uvas e teor alcoólico de 9,5%.</string>
+    <string name="descricao_5">Produzido por Castellani de origem italiana com tipo de fechamento rolha de cortiça, volume de 750ml, feito com uvas Sangiovese, Canaiolo e Cabernet Sauvignon e possui um teor de alcoólico de 12,5%.</string>
+    <string name="descricao_6">Produzido por Terre Cevico de origem italiana com tipo de fechamento rolha, volume de 750ml, feito com várias uvas e possui um teor de alcoólico de 10,5%.</string>
+    <string name="descricao_7">Produzido por Manzanos de origem espanhola com tipo de fechamento rolha de cortiça, volume de 750ml, feito com uvas Tempranillo, Garnacha e Graciano e possui um teor de alcoólico de 13,5%.</string>
+    <string name="descricao_8">Produzido por Aleavini de origem espanhola com tipo de fechamento rolha, volume de 750ml, feito com várias uvas e possui um teor de alcoólico de 12%.</string>
+    <string name="wine_not_found">Vinho não encontrado</string>
+
+
+
+</resources>

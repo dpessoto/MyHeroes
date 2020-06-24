@@ -1,0 +1,71 @@
+<resources>
+
+    <!-- nome do app -->
+    <string name="app_name">evino</string>
+
+    <!-- intro_1 -->
+    <string name="my_name">Daniel Pessoto</string>
+
+    <!-- intro_2 -->
+    <string name="about_me">About me</string>
+    <string name="my_description">Developer with experience in android development, with knowledge in database, versioning and who values good programming practices.</string>
+    <string name="acquirements">Acquiriments</string>
+    <string name="acquirements_of_languages">HTML5 \nCSS3 \nBootstrap \nJavascript \nC \nC# \n.NET \nAsp.NET \nJava \nAndroid (Java e Kotlin) \nGIT \nDatabase (SQL Server)</string>
+    <string name="personal_skills">Personal skills</string>
+    <string name="personal_skills_description">Creative \nReliable and professional \nOrganized \nFlexible \nMotivated \nFast learning</string>
+
+    <!-- intro_3 -->
+    <string name="create_your_free_account">Create your free account</string>
+    <string name="join_the_evini">Join the evino world \nand have the best wines</string>
+    <string name="login_register">Login / Register</string>
+
+    <!-- activity_login / activity_cadastro -->
+    <string name="name">Name</string>
+    <string name="password">Password</string>
+    <string name="login">login</string>
+    <string name="email">E-mail</string>
+    <string name="register">Register</string>
+
+    <!-- acitivity_main -->
+    <string name="exit">Exit</string>
+
+    <!-- LoginActivity.class / CadastroActivity.class-->
+    <string name="fill_in_the_password">Fill in the password!</string>
+    <string name="fill_in_the_email">Fill in the e-mail!</string>
+    <string name="fill_in_the_name">Fill in the name!</string>
+    <string name="error_singning_in">Error signing in</string>
+    <string name="verification">Verification</string>
+    <string name="verification_age">Are you 18 or older?</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="come_back">Come back in a few years / months / days</string>
+    <string name="no_internet">No internet connection</string>
+    <string name="we_need_an_intenert">We need an internet connection. Please activate and try again</string>
+    <string name="try_again">TRY AGAIN</string>
+    <string name="close">CLOSE</string>
+    <string name="try_later">Try later</string>
+    <string name="registered_successfully">Registered successfully</string>
+    <string name="enter_a_stronger_password">Enter a stronger password!</string>
+    <string name="type_a_valid_email">Please, type a valid email!</string>
+    <string name="account_has_been_registered">This account has already been registered!</string>
+    <string name="when_registering_user">when registering user: </string>
+    <string name="error">error: </string>
+
+    <!-- MainActivity.class -->
+    <string name="click_on_some_wine">click on some wine to see the description</string>
+
+    <!-- DetalhesActivity.class -->
+    <string name="descricao_1">Produced by Domaine du Père Guillot of European origin, with closure type, volume of 750ml, made with various grapes and alcohol content of 12%.</string>
+    <string name="descricao_2">Produced by Bodega López and Morena of Spanish origin with stopper type closure, volume of 750ml, made from Pinot Noir grapes and alcohol content of 12%.</string>
+    <string name="descricao_3">Produced by Aura Wines of Chilean origin, with a cork stopper type, volume of 750ml, made with Pinot Noir grapes and alcohol content of 13%.</string>
+    <string name="descricao_4">Produced by Viniverde - Adega Ponte da Barca of Portuguese origin with stopper type, volume of 750ml, made with various grapes and alcohol content of 9.5%.</string>
+    <string name="descricao_5">Produced by Castellani of Italian origin with a cork stopper type, volume of 750ml, made with Sangiovese, Canaiolo and Cabernet Sauvignon grapes and has an alcohol content of 12.5%.</string>
+    <string name="descricao_6">Produced by Terre Cevico of Italian origin with stopper type, volume of 750ml, made with various grapes and has an alcohol content of 10.5%.</string>
+    <string name="descricao_7">Produced by Manzanos of Spanish origin with a cork stopper type, volume of 750ml, made with Tempranillo, Garnacha and Graciano grapes and has an alcohol content of 13.5%.</string>
+    <string name="descricao_8">Produzido por Aleavini de origem espanhola com tipo de fechamento rolha, volume de 750ml, feito com várias uvas e possui um teor de alcoólico de 12%.</string>
+    <string name="wine_not_found">Wine not found</string>
+
+
+
+
+</resources>
