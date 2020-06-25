@@ -27,21 +27,24 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        recyclerView = findViewById(R.id.recyclerView);
+        inicializarComponentes();
 
-        //Lista de personagens;
-        criarPersonagens();
+        criarListaDePersonagens();
 
         //Configurar o adapter
         Adapter adapter = new Adapter(listaPersonagens);
 
-        //Configurar RecyclerView
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
-        recyclerView.setLayoutManager(layoutManager);
-        recyclerView.setHasFixedSize(true);
-        recyclerView.setAdapter(adapter);
+        configuraRecyclerView(adapter);
 
-        //tela de detalhes
+        enviarDadosDetalhesActivity();
+
+    }
+
+    private void inicializarComponentes() {
+        recyclerView = findViewById(R.id.recyclerView);
+    }
+
+    private void enviarDadosDetalhesActivity() {
         recyclerView.addOnItemTouchListener(
                 new RecyclerItemClickListener(
                         getApplicationContext(),
@@ -72,10 +75,16 @@ public class MainActivity extends AppCompatActivity {
                         }
                 )
         );
-
     }
 
-    public void criarPersonagens() {
+    private void configuraRecyclerView(Adapter adapter) {
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
+        recyclerView.setLayoutManager(layoutManager);
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setAdapter(adapter);
+    }
+
+    public void criarListaDePersonagens() {
         Personagem personagem = new Personagem("Homem de ferro", R.drawable.logo_white);
         listaPersonagens.add(personagem);
 
