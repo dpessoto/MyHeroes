@@ -36,10 +36,10 @@
     <string name="fill_in_the_name">Preencha o nome!</string>
     <string name="error_singning_in">Erro ao fazer login</string>
     <string name="verification">Verificação</string>
-    <string name="verification_age">Você possui 18 anos ou mais?</string>
+    <string name="verification_age">Homem de Ferro é o melhor vingador???</string>
     <string name="yes">Sim</string>
     <string name="no">Não</string>
-    <string name="come_back">Volte daqui alguns anos / meses / dias</string>
+    <string name="come_back">Você ainda não está preparado para essa conversa</string>
     <string name="no_internet">Sem conexão com a internet</string>
     <string name="we_need_an_intenert">Precisamos de conexão com a internet. Por favor, ative e tente novamente</string>
     <string name="try_again">TENTAR NOVAMENTE</string>
@@ -53,7 +53,7 @@
     <string name="error">erro: </string>
 
     <!-- MainActivity.class -->
-    <string name="click_on_some_wine">clique em algum vinho, para ver a descrição</string>
+    <string name="click_on_some_wine">clique em algum personagem, para ver a descrição</string>
 
     <!-- DetalhesActivity -->
     <string name="descricao_1">Produzido por Domaine du Père Guillot de origem europeia, com tipo de fechamento rolha, volume de 750ml, feito com várias uvas e teor alcoólico de 12%.</string>
