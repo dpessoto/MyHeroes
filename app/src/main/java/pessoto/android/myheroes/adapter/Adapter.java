@@ -54,7 +54,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.MyViewHolder> {
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
-            nomePersonagem = itemView.findViewById(R.id.textNomePersonagem);
+            nomePersonagem = itemView.findViewById(R.id.textNomePersonagemDetalhes);
             imagemPersonagem = itemView.findViewById(R.id.imagePersonagem);
 
         }
