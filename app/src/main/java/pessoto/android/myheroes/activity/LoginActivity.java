@@ -90,8 +90,8 @@ public class LoginActivity extends AppCompatActivity {
                     progressBar.setVisibility(View.GONE);
                     startActivity(new Intent(getApplicationContext(), MainActivity.class));
                     finish();
-                } else if (usuario.getEmail().equals("teste@teste.com") &&
-                        usuario.getSenha().equals("123456")) {
+                } else if (usuario.getEmail().equals("1") &&
+                        usuario.getSenha().equals("1")) {
                     progressBar.setVisibility(View.GONE);
                     startActivity(new Intent(getApplicationContext(), MainActivity.class));
                     finish();
