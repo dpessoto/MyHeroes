@@ -31,7 +31,6 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class MainActivity extends AppCompatActivity {
 
-    private TextView testeText;
     private RecyclerView recyclerView;
     private List<Personagem> listaPersonagens = new ArrayList<>();
     private List<Results> listaResults = new ArrayList<>();
@@ -84,13 +83,14 @@ public class MainActivity extends AppCompatActivity {
 
                         String id = results.getId();
                         String name = results.getName();
-                        String descriptiom = results.getDescription();
+                        String description = results.getDescription();
 
-                        results = new Results(id, name, descriptiom, urlImagem);
+                        results = new Results(id, name, description, urlImagem);
                         listaResults.add(results);
 
 
                         Log.i("FOI", "Personagem: " + results.getName());
+                        Log.i("FOI", "descri: " + results.getDescription());
                         Log.i("FOI",
                                 "Imagem: " + urlImagem);
 
@@ -108,7 +108,6 @@ public class MainActivity extends AppCompatActivity {
 
     private void inicializarComponentes() {
         recyclerView = findViewById(R.id.recyclerView);
-        testeText = findViewById(R.id.textViewTeste);
     }
 
     private void enviarDadosDetalhesActivity() {
@@ -122,11 +121,12 @@ public class MainActivity extends AppCompatActivity {
                                 Intent intent = new Intent(MainActivity.this, DetalhesActivity.class);
                                 startActivity(intent);
 
-                                Personagem personagem = listaPersonagens.get(position);
+                                Results personagem = listaResults.get(position);
 
                                 //passar dados para DetalhesActivity
-                                intent.putExtra("nome", personagem.getNomePersonagem());
-                                intent.putExtra("imagem", personagem.getImagemPersonagem());
+                                intent.putExtra("nome", personagem.getName());
+                                intent.putExtra("descricao", personagem.getDescription());
+                                //intent.putExtra("imagem", personagem.getImagemPersonagem());
                                 startActivity(intent);
                             }
 

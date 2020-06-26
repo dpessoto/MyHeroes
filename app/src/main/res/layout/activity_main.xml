@@ -17,13 +17,4 @@
 
     </androidx.recyclerview.widget.RecyclerView>
 
-    <TextView
-        android:id="@+id/textViewTeste"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TextView"
-        android:visibility="visible"
-        app:layout_constraintStart_toStartOf="@+id/recyclerView"
-        app:layout_constraintTop_toTopOf="@+id/recyclerView" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>

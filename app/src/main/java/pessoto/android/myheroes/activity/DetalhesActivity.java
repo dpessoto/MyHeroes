@@ -24,16 +24,21 @@ public class DetalhesActivity extends AppCompatActivity {
 
         RecuperarDadosMain recuperarDadosMain = new RecuperarDadosMain().invoke();
         String nome = recuperarDadosMain.getNome();
-        int image = recuperarDadosMain.getImage();
+        String descricao = recuperarDadosMain.getDescricao();
+        //int image = recuperarDadosMain.getImage();
 
-        configurarDadosMain(nome, image);
+        configurarDadosMain(nome, descricao);
 
     }
 
-    private void configurarDadosMain(String nome, int image) {
+    private void configurarDadosMain(String nome, String descricao) {
         textNomePersonagem.setText(nome);
-        imagePersonagem.setImageResource(image);
-        textDescricao.setText("Homem de ferro é o melhor");
+
+        if (descricao.isEmpty())
+            textDescricao.setText("Personagem sem descrição");
+        else
+            textDescricao.setText(descricao);
+        //imagePersonagem.setImageResource(image);
     }
 
     private void inicializarComponentes() {
@@ -59,7 +64,14 @@ public class DetalhesActivity extends AppCompatActivity {
 
     private class RecuperarDadosMain {
         private String nome;
+        private String descricao;
         private int image;
+
+
+        public String getDescricao() {
+            return descricao;
+        }
+
 
         public String getNome() {
             return nome;
@@ -72,7 +84,8 @@ public class DetalhesActivity extends AppCompatActivity {
         public RecuperarDadosMain invoke() {
             Bundle dados = getIntent().getExtras();
             nome = dados.getString("nome");
-            image = dados.getInt("imagem");
+            descricao = dados.getString("descricao");
+            //image = dados.getInt("imagem");
             return this;
         }
     }

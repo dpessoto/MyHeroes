@@ -9,10 +9,10 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.io.InputStream;
 import java.util.List;
 
 import pessoto.android.myheroes.R;
-import pessoto.android.myheroes.model.Personagem;
 import pessoto.android.myheroes.model.Results;
 
 public class Adapter extends RecyclerView.Adapter<Adapter.MyViewHolder> {
@@ -37,7 +37,10 @@ public class Adapter extends RecyclerView.Adapter<Adapter.MyViewHolder> {
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
 
         Results personagem;
+
         personagem = listaPersonagens.get(position);
+
+        //holder.imagemPersonagem.setImageBitmap(imagem);
         holder.nomePersonagem.setText(personagem.getName());
         //holder.imagemPersonagem.setImageResource(personagem.getImagemPersonagem());
 
@@ -59,5 +62,8 @@ public class Adapter extends RecyclerView.Adapter<Adapter.MyViewHolder> {
             imagemPersonagem = itemView.findViewById(R.id.imagePersonagem);
 
         }
+    }
+
+    private static void closeStream(InputStream in) {
     }
 }
