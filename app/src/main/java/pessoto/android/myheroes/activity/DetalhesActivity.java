@@ -5,8 +5,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.squareup.picasso.Picasso;
 
 import pessoto.android.myheroes.R;
 
@@ -25,20 +28,21 @@ public class DetalhesActivity extends AppCompatActivity {
         RecuperarDadosMain recuperarDadosMain = new RecuperarDadosMain().invoke();
         String nome = recuperarDadosMain.getNome();
         String descricao = recuperarDadosMain.getDescricao();
-        //int image = recuperarDadosMain.getImage();
+        String image = recuperarDadosMain.getImage();
 
-        configurarDadosMain(nome, descricao);
-
+        configurarDadosMain(nome, descricao, image);
     }
 
-    private void configurarDadosMain(String nome, String descricao) {
+    private void configurarDadosMain(String nome, String descricao, String image) {
         textNomePersonagem.setText(nome);
 
         if (descricao.isEmpty())
             textDescricao.setText("Personagem sem descrição");
         else
             textDescricao.setText(descricao);
-        //imagePersonagem.setImageResource(image);
+        Picasso.get()
+                .load(image)
+                .into(imagePersonagem);
     }
 
     private void inicializarComponentes() {
@@ -65,7 +69,7 @@ public class DetalhesActivity extends AppCompatActivity {
     private class RecuperarDadosMain {
         private String nome;
         private String descricao;
-        private int image;
+        private String image;
 
 
         public String getDescricao() {
@@ -77,7 +81,7 @@ public class DetalhesActivity extends AppCompatActivity {
             return nome;
         }
 
-        public int getImage() {
+        public String getImage() {
             return image;
         }
 
@@ -85,7 +89,7 @@ public class DetalhesActivity extends AppCompatActivity {
             Bundle dados = getIntent().getExtras();
             nome = dados.getString("nome");
             descricao = dados.getString("descricao");
-            //image = dados.getInt("imagem");
+            image = dados.getString("imagem");
             return this;
         }
     }

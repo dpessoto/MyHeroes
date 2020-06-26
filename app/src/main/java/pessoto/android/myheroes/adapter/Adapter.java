@@ -9,7 +9,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.io.InputStream;
+import com.squareup.picasso.Picasso;
+
 import java.util.List;
 
 import pessoto.android.myheroes.R;
@@ -40,9 +41,11 @@ public class Adapter extends RecyclerView.Adapter<Adapter.MyViewHolder> {
 
         personagem = listaPersonagens.get(position);
 
-        //holder.imagemPersonagem.setImageBitmap(imagem);
+        String url = personagem.getImagem();
         holder.nomePersonagem.setText(personagem.getName());
-        //holder.imagemPersonagem.setImageResource(personagem.getImagemPersonagem());
+        Picasso.get()
+                .load(url)
+                .into(holder.imagemPersonagem);
 
     }
 
@@ -60,10 +63,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.MyViewHolder> {
             super(itemView);
             nomePersonagem = itemView.findViewById(R.id.textNomePersonagemDetalhes);
             imagemPersonagem = itemView.findViewById(R.id.imagePersonagem);
-
         }
     }
 
-    private static void closeStream(InputStream in) {
-    }
 }

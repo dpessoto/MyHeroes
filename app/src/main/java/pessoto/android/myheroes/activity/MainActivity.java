@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -19,7 +18,6 @@ import pessoto.android.myheroes.R;
 import pessoto.android.myheroes.RecyclerItemClickListener;
 import pessoto.android.myheroes.adapter.Adapter;
 import pessoto.android.myheroes.model.Marvel;
-import pessoto.android.myheroes.model.Personagem;
 import pessoto.android.myheroes.model.Results;
 import pessoto.android.myheroes.model.Thumbnail;
 import pessoto.android.myheroes.service.MarvelService;
@@ -32,7 +30,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class MainActivity extends AppCompatActivity {
 
     private RecyclerView recyclerView;
-    private List<Personagem> listaPersonagens = new ArrayList<>();
+    //private List<Personagem> listaPersonagens = new ArrayList<>();
     private List<Results> listaResults = new ArrayList<>();
     private Retrofit retrofit;
 
@@ -53,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
 
         recuperarListaRetrofit();
 
-        criarListaDePersonagens();
+        //criarListaDePersonagens();
 
         //Configurar o adapter
         Adapter adapter = new Adapter(listaResults);
@@ -80,12 +78,13 @@ public class MainActivity extends AppCompatActivity {
                         Thumbnail thumbnail = results.thumbnail;
 
                         String urlImagem = thumbnail.getPath() + "." + thumbnail.getExtension();
+                        String urlTratada = "https" + urlImagem.substring(4);
 
                         String id = results.getId();
                         String name = results.getName();
                         String description = results.getDescription();
 
-                        results = new Results(id, name, description, urlImagem);
+                        results = new Results(id, name, description, urlTratada);
                         listaResults.add(results);
 
 
@@ -126,7 +125,7 @@ public class MainActivity extends AppCompatActivity {
                                 //passar dados para DetalhesActivity
                                 intent.putExtra("nome", personagem.getName());
                                 intent.putExtra("descricao", personagem.getDescription());
-                                //intent.putExtra("imagem", personagem.getImagemPersonagem());
+                                intent.putExtra("imagem", personagem.getImagem());
                                 startActivity(intent);
                             }
 
@@ -151,7 +150,7 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setAdapter(adapter);
     }
 
-    public void criarListaDePersonagens() {
+    /*public void criarListaDePersonagens() {
 
         Personagem personagem = new Personagem("vai", R.drawable.logo_white);
         listaPersonagens.add(personagem);
@@ -167,7 +166,7 @@ public class MainActivity extends AppCompatActivity {
 
         personagem = new Personagem("Thanos", R.drawable.logo_white);
         listaPersonagens.add(personagem);
-    }
+    } */
 
     @Override
     public void onBackPressed() {
