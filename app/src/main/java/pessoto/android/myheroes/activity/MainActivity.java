@@ -30,7 +30,6 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class MainActivity extends AppCompatActivity {
 
     private RecyclerView recyclerView;
-    //private List<Personagem> listaPersonagens = new ArrayList<>();
     private List<Results> listaResults = new ArrayList<>();
     private Retrofit retrofit;
 
@@ -50,8 +49,6 @@ public class MainActivity extends AppCompatActivity {
                 .build();
 
         recuperarListaRetrofit();
-
-        //criarListaDePersonagens();
 
         //Configurar o adapter
         Adapter adapter = new Adapter(listaResults);
@@ -149,24 +146,6 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setHasFixedSize(true);
         recyclerView.setAdapter(adapter);
     }
-
-    /*public void criarListaDePersonagens() {
-
-        Personagem personagem = new Personagem("vai", R.drawable.logo_white);
-        listaPersonagens.add(personagem);
-
-        personagem = new Personagem("Capitao America", R.drawable.logo_white);
-        listaPersonagens.add(personagem);
-
-        personagem = new Personagem("Homem Aranha", R.drawable.logo_white);
-        listaPersonagens.add(personagem);
-
-        personagem = new Personagem("Hulk", R.drawable.logo_white);
-        listaPersonagens.add(personagem);
-
-        personagem = new Personagem("Thanos", R.drawable.logo_white);
-        listaPersonagens.add(personagem);
-    } */
 
     @Override
     public void onBackPressed() {
