@@ -13,12 +13,13 @@ import java.util.List;
 
 import pessoto.android.myheroes.R;
 import pessoto.android.myheroes.model.Personagem;
+import pessoto.android.myheroes.model.Results;
 
 public class Adapter extends RecyclerView.Adapter<Adapter.MyViewHolder> {
 
-    private List<Personagem> listaPersonagens;
+    private List<Results> listaPersonagens;
 
-    public Adapter(List<Personagem> lista) {
+    public Adapter(List<Results> lista) {
         listaPersonagens = lista;
     }
 
@@ -35,10 +36,10 @@ public class Adapter extends RecyclerView.Adapter<Adapter.MyViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
 
-        Personagem personagem;
+        Results personagem;
         personagem = listaPersonagens.get(position);
-        holder.nomePersonagem.setText(personagem.getNomePersonagem());
-        holder.imagemPersonagem.setImageResource(personagem.getImagemPersonagem());
+        holder.nomePersonagem.setText(personagem.getName());
+        //holder.imagemPersonagem.setImageResource(personagem.getImagemPersonagem());
 
     }
 

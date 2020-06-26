@@ -21,6 +21,7 @@ import pessoto.android.myheroes.adapter.Adapter;
 import pessoto.android.myheroes.model.Marvel;
 import pessoto.android.myheroes.model.Personagem;
 import pessoto.android.myheroes.model.Results;
+import pessoto.android.myheroes.model.Thumbnail;
 import pessoto.android.myheroes.service.MarvelService;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -56,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
         criarListaDePersonagens();
 
         //Configurar o adapter
-        Adapter adapter = new Adapter(listaPersonagens);
+        Adapter adapter = new Adapter(listaResults);
         configuraRecyclerView(adapter);
 
         enviarDadosDetalhesActivity();
@@ -67,6 +68,8 @@ public class MainActivity extends AppCompatActivity {
         MarvelService marvelService = retrofit.create(MarvelService.class);
         Call<Marvel> requestMarval = marvelService.listMarvel();
 
+        Log.i("ok", "Retrofit");
+
         requestMarval.enqueue(new Callback<Marvel>() {
             @Override
             public void onResponse(Call<Marvel> call, Response<Marvel> response) {
@@ -75,10 +78,22 @@ public class MainActivity extends AppCompatActivity {
                     int count = Integer.parseInt(marvelLista.data.getCount());
                     for (int i = 0; i < count; i++) {
                         Results results = marvelLista.data.results.get(i);
+                        Thumbnail thumbnail = results.thumbnail;
 
-                        Log.i("FOI", "Personagem" + results.getName());
+                        String urlImagem = thumbnail.getPath() + "." + thumbnail.getExtension();
 
+                        String id = results.getId();
+                        String name = results.getName();
+                        String descriptiom = results.getDescription();
+
+                        results = new Results(id, name, descriptiom, urlImagem);
                         listaResults.add(results);
+
+
+                        Log.i("FOI", "Personagem: " + results.getName());
+                        Log.i("FOI",
+                                "Imagem: " + urlImagem);
+
                     }
                 }
             }

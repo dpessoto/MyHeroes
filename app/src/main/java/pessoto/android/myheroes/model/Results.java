@@ -1,11 +1,28 @@
 package pessoto.android.myheroes.model;
 
+import java.util.List;
+
 public class Results {
+    public Thumbnail thumbnail;
     private String id;
     private String name;
     private String description;
-    private String modified;
-    private String thumbnail;
+    private String imagem;
+
+    public Results(String id, String name, String description, String imagem) {
+        this.id = id;
+        this.name = name;
+        this.description = description;
+        this.imagem = imagem;
+    }
+
+    public String getImagem() {
+        return imagem;
+    }
+
+    public void setImagem(String imagem) {
+        this.imagem = imagem;
+    }
 
     public String getId() {
         return id;
@@ -31,19 +48,5 @@ public class Results {
         this.description = description;
     }
 
-    public String getModified() {
-        return modified;
-    }
 
-    public void setModified(String modified) {
-        this.modified = modified;
-    }
-
-    public String getThumbnail() {
-        return thumbnail;
-    }
-
-    public void setThumbnail(String thumbnail) {
-        this.thumbnail = thumbnail;
-    }
 }
