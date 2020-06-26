@@ -48,11 +48,11 @@ public class MainActivity extends AppCompatActivity {
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
-        recuperarListaRetrofit();
-
         //Configurar o adapter
         Adapter adapter = new Adapter(listaResults);
         configuraRecyclerView(adapter);
+
+        recuperarListaRetrofit();
 
         enviarDadosDetalhesActivity();
     }
