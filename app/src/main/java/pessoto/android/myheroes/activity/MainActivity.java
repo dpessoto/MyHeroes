@@ -62,8 +62,6 @@ public class MainActivity extends AppCompatActivity {
         MarvelService marvelService = retrofit.create(MarvelService.class);
         Call<Marvel> requestMarval = marvelService.listMarvel();
 
-        Log.i("ok", "Retrofit");
-
         requestMarval.enqueue(new Callback<Marvel>() {
             @Override
             public void onResponse(Call<Marvel> call, Response<Marvel> response) {
@@ -83,13 +81,6 @@ public class MainActivity extends AppCompatActivity {
 
                         results = new Results(id, name, description, urlTratada);
                         listaResults.add(results);
-
-
-                        Log.i("FOI", "Personagem: " + results.getName());
-                        Log.i("FOI", "descri: " + results.getDescription());
-                        Log.i("FOI",
-                                "Imagem: " + urlImagem);
-
                     }
                 }
             }
@@ -129,6 +120,7 @@ public class MainActivity extends AppCompatActivity {
                             @Override
                             public void onLongItemClick(View view, int position) {
 
+                                Toast.makeText(MainActivity.this, "Homem de ferro é o melhor!!!", Toast.LENGTH_SHORT).show();
                             }
 
                             @Override
