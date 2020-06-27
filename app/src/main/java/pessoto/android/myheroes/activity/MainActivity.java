@@ -1,6 +1,9 @@
 package pessoto.android.myheroes.activity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
@@ -12,6 +15,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -48,25 +52,16 @@ public class MainActivity extends AppCompatActivity {
 
         inicializarComponentes();
 
-        //retrofit
+        verificaConexao();
+
+        enviarDadosDetalhesActivity();
+    }
+
+    private void retrofit() {
         retrofit = new Retrofit.Builder()
                 .baseUrl("https://gateway.marvel.com/v1/public/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
-
-        recuperarListaRetrofit();
-
-        new Handler().postDelayed(() -> {
-            Adapter adapter = new Adapter(listaResults);
-            configuraRecyclerView(adapter);
-
-            Toast.makeText(this, R.string.click_on_some_wine, Toast.LENGTH_SHORT).show();
-
-            textCarregando.setVisibility(View.INVISIBLE);
-            progressPersonagem.setVisibility(View.INVISIBLE);
-        }, 2300);
-
-        enviarDadosDetalhesActivity();
     }
 
     private void recuperarListaRetrofit() {
@@ -152,11 +147,55 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setHasFixedSize(true);
         recyclerView.setAdapter(adapter);
-
     }
 
     @Override
     public void onBackPressed() {
         // não permitir que o usuario volte
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.M)
+    public void verificaConexao() {
+
+
+        ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo net = cm.getActiveNetworkInfo();
+
+        if (net != null && net.isConnectedOrConnecting()) {
+
+            retrofit();
+
+            recuperarListaRetrofit();
+
+            delayParaCarregarRecycler();
+
+        } else {
+            AlertDialog.Builder alert = new AlertDialog.Builder(this);
+            alert.setTitle(getString(R.string.no_internet));
+            alert.setIcon(R.mipmap.ic_launcher);
+            alert.setMessage(getString(R.string.we_need_an_intenert));
+            alert.setCancelable(false);
+            alert.setPositiveButton(getString(R.string.try_again), (dialogInterface, i) -> verificaConexao());
+
+            alert.setNegativeButton(getString(R.string.close), (dialogInterface, i) -> {
+                Toast.makeText(getApplicationContext(),
+                        getString(R.string.try_later),
+                        Toast.LENGTH_LONG).show();
+                finishAffinity();
+            });
+
+            alert.create();
+            alert.show();
+        }
+    }
+
+    private void delayParaCarregarRecycler() {
+        new Handler().postDelayed(() -> {
+            Adapter adapter = new Adapter(listaResults);
+            configuraRecyclerView(adapter);
+
+            textCarregando.setVisibility(View.INVISIBLE);
+            progressPersonagem.setVisibility(View.INVISIBLE);
+        }, 2300);
     }
 }
