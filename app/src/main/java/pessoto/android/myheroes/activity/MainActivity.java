@@ -1,12 +1,17 @@
 package pessoto.android.myheroes.activity;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -32,7 +37,10 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private List<Results> listaResults = new ArrayList<>();
     private Retrofit retrofit;
+    private ProgressBar progressPersonagem;
+    private TextView textCarregando;
 
+    @RequiresApi(api = Build.VERSION_CODES.P)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,18 +56,15 @@ public class MainActivity extends AppCompatActivity {
 
         recuperarListaRetrofit();
 
-        try {
-            new Thread().sleep(2000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        new Handler().postDelayed(() -> {
+            Adapter adapter = new Adapter(listaResults);
+            configuraRecyclerView(adapter);
 
-        Toast.makeText(this, R.string.click_on_some_wine, Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, R.string.click_on_some_wine, Toast.LENGTH_SHORT).show();
 
-        //Configurar o adapter
-        Adapter adapter = new Adapter(listaResults);
-
-        configuraRecyclerView(adapter);
+            textCarregando.setVisibility(View.INVISIBLE);
+            progressPersonagem.setVisibility(View.INVISIBLE);
+        }, 2300);
 
         enviarDadosDetalhesActivity();
     }
@@ -102,6 +107,8 @@ public class MainActivity extends AppCompatActivity {
 
     private void inicializarComponentes() {
         recyclerView = findViewById(R.id.recyclerView);
+        progressPersonagem = findViewById(R.id.progressPesonagem);
+        textCarregando = findViewById(R.id.textCarregando);
     }
 
     private void enviarDadosDetalhesActivity() {
