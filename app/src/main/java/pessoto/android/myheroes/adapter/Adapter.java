@@ -37,16 +37,12 @@ public class Adapter extends RecyclerView.Adapter<Adapter.MyViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
 
-        Results personagem;
+        Results personagem = listaPersonagens.get(position);
 
-        personagem = listaPersonagens.get(position);
-
-        String url = personagem.getImagem();
         holder.nomePersonagem.setText(personagem.getName());
         Picasso.get()
-                .load(url)
+                .load(personagem.getImagem())
                 .into(holder.imagemPersonagem);
-
     }
 
     @Override
@@ -61,9 +57,8 @@ public class Adapter extends RecyclerView.Adapter<Adapter.MyViewHolder> {
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
-            nomePersonagem = itemView.findViewById(R.id.textNomePersonagemDetalhes);
+            nomePersonagem = itemView.findViewById(R.id.textNomePersonagem);
             imagemPersonagem = itemView.findViewById(R.id.imagePersonagem);
         }
     }
-
 }

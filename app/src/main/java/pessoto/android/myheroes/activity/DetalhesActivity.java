@@ -45,7 +45,7 @@ public class DetalhesActivity extends AppCompatActivity {
     }
 
     private void inicializarComponentes() {
-        textNomePersonagem = findViewById(R.id.textNomePersonagemDetalhes);
+        textNomePersonagem = findViewById(R.id.textNomePersonagem);
         textDescricao = findViewById(R.id.textDescricaoDetalhes);
         imagePersonagem = findViewById(R.id.imagePersonagemDetalhes);
     }

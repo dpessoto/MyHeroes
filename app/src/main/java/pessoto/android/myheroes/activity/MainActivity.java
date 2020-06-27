@@ -40,19 +40,26 @@ public class MainActivity extends AppCompatActivity {
 
         inicializarComponentes();
 
-        Toast.makeText(this, R.string.click_on_some_wine, Toast.LENGTH_SHORT).show();
-
         //retrofit
         retrofit = new Retrofit.Builder()
                 .baseUrl("https://gateway.marvel.com/v1/public/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
+        recuperarListaRetrofit();
+
+        try {
+            new Thread().sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        Toast.makeText(this, R.string.click_on_some_wine, Toast.LENGTH_SHORT).show();
+
         //Configurar o adapter
         Adapter adapter = new Adapter(listaResults);
-        configuraRecyclerView(adapter);
 
-        recuperarListaRetrofit();
+        configuraRecyclerView(adapter);
 
         enviarDadosDetalhesActivity();
     }
@@ -115,6 +122,7 @@ public class MainActivity extends AppCompatActivity {
                                 intent.putExtra("descricao", personagem.getDescription());
                                 intent.putExtra("imagem", personagem.getImagem());
                                 startActivity(intent);
+                                finish();
                             }
 
                             @Override
@@ -137,6 +145,7 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setHasFixedSize(true);
         recyclerView.setAdapter(adapter);
+
     }
 
     @Override
