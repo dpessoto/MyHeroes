@@ -132,7 +132,7 @@ public class MainActivity extends AppCompatActivity {
 
                                 FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
                                 transaction.replace(R.id.frameTeste, detalhesFragment);
-                                transaction.commit();
+                                transaction.addToBackStack(null).commit();
                             }
 
                             @Override
@@ -159,7 +159,8 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        // não permitir que o usuario volte
+
+        super.onBackPressed();
     }
 
     @RequiresApi(api = Build.VERSION_CODES.M)
@@ -204,6 +205,6 @@ public class MainActivity extends AppCompatActivity {
 
             textCarregando.setVisibility(View.INVISIBLE);
             progressPersonagem.setVisibility(View.INVISIBLE);
-        }, 2300);
+        }, 2900);
     }
 }
