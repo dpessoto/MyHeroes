@@ -15,7 +15,6 @@ import pessoto.android.myheroes.R;
 
 public class DetalhesFragment extends Fragment {
 
-    private ImageView icon;
     private TextView textNome;
     private TextView textDescricao;
     private ImageView imagePersonagem;
@@ -33,9 +32,6 @@ public class DetalhesFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_detalhes, container, false);
 
         personagem = getArguments();
-
-        icon = view.findViewById(R.id.iconDetalhes);
-        icon.setImageResource(R.mipmap.ic_launcher);
 
         textNome = view.findViewById(R.id.textNamePersonagem);
         textNome.setText(personagem.getString("nome"));
