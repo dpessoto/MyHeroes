@@ -64,8 +64,8 @@
     <string name="descricao_7">Produced by Manzanos of Spanish origin with a cork stopper type, volume of 750ml, made with Tempranillo, Garnacha and Graciano grapes and has an alcohol content of 13.5%.</string>
     <string name="descricao_8">Produzido por Aleavini de origem espanhola com tipo de fechamento rolha, volume de 750ml, feito com várias uvas e possui um teor de alcoólico de 12%.</string>
     <string name="wine_not_found">Wine not found</string>
-
-
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 
 </resources>

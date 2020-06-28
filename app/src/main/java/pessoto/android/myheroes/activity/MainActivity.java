@@ -1,7 +1,6 @@
 package pessoto.android.myheroes.activity;
 
 import android.content.Context;
-import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Build;
@@ -17,6 +16,7 @@ import android.widget.Toast;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -26,6 +26,7 @@ import java.util.List;
 import pessoto.android.myheroes.R;
 import pessoto.android.myheroes.RecyclerItemClickListener;
 import pessoto.android.myheroes.adapter.Adapter;
+import pessoto.android.myheroes.fragments.DetalhesFragment;
 import pessoto.android.myheroes.model.Marvel;
 import pessoto.android.myheroes.model.Results;
 import pessoto.android.myheroes.model.Thumbnail;
@@ -44,6 +45,8 @@ public class MainActivity extends AppCompatActivity {
     private ProgressBar progressPersonagem;
     private TextView textCarregando;
 
+    private DetalhesFragment detalhesFragment;
+
     @RequiresApi(api = Build.VERSION_CODES.P)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
 
         verificaConexao();
 
-        enviarDadosDetalhesActivity();
+        enviarDadosDetalhesFragment();
     }
 
     private void retrofit() {
@@ -106,7 +109,7 @@ public class MainActivity extends AppCompatActivity {
         textCarregando = findViewById(R.id.textCarregando);
     }
 
-    private void enviarDadosDetalhesActivity() {
+    private void enviarDadosDetalhesFragment() {
         recyclerView.addOnItemTouchListener(
                 new RecyclerItemClickListener(
                         getApplicationContext(),
@@ -114,17 +117,22 @@ public class MainActivity extends AppCompatActivity {
                         new RecyclerItemClickListener.OnItemClickListener() {
                             @Override
                             public void onItemClick(View view, int position) {
-                                Intent intent = new Intent(MainActivity.this, DetalhesActivity.class);
-                                startActivity(intent);
 
                                 Results personagem = listaResults.get(position);
 
-                                //passar dados para DetalhesActivity
-                                intent.putExtra("nome", personagem.getName());
-                                intent.putExtra("descricao", personagem.getDescription());
-                                intent.putExtra("imagem", personagem.getImagem());
-                                startActivity(intent);
-                                finish();
+                                detalhesFragment = new DetalhesFragment();
+
+                                Bundle informacoes = new Bundle();
+
+                                informacoes.putString("nome", personagem.getName());
+                                informacoes.putString("descricao", personagem.getDescription());
+                                informacoes.putString("imagem", personagem.getImagem());
+
+                                detalhesFragment.setArguments(informacoes);
+
+                                FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+                                transaction.replace(R.id.frameTeste, detalhesFragment);
+                                transaction.commit();
                             }
 
                             @Override
